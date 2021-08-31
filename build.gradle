@@ -24,6 +24,10 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
+
+//	implementation group: 'io.humble', name: 'humble-video-all', version: '0.3.0'
+	implementation group: 'org.bytedeco', name: 'javacv-platform', version: '1.5.6'
+
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

@@ -1,11 +1,12 @@
 package com.burlywoodpalette.bwvideo.service;
 
-import java.awt.image.BufferedImage;
-import java.io.InputStream;
+import com.burlywoodpalette.bwvideo.domain.dto.VideoScreenshotDto;
 import java.util.List;
+import java.util.UUID;
+import reactor.core.publisher.Flux;
 
 public interface ImageProcessor {
 
-  List<BufferedImage> process(InputStream inputStream);
+  Flux<VideoScreenshotDto> process(UUID videoId);
 
 }

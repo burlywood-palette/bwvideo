@@ -5,7 +5,7 @@ spring:
   application:
     name: BWVideoService
   profiles:
-    include: config
+    include: config, external-service
   data:
     mongodb:
       database: ${MONGO_DB_DATABASE:bwvideo-service}

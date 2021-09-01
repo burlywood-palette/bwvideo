@@ -28,7 +28,7 @@ public class DefaultFileStorageService implements FileStorageService<PersistFile
   public Mono<String> save(PersistFileDto value) {
     return Mono.justOrEmpty(value)
         .flatMap(PersistFileDto::getFileParts)
-        .flatMap(filePart -> reactiveGridFsTemplate.store(filePart.content(), value.getTitle(), value.getContentType()))
+        .flatMap(filePart -> reactiveGridFsTemplate.store(filePart.content(), value.getTitle()))
         .map(ObjectId::toString)
         .doOnNext(uid -> log.info("The {} has been stored successfully. mongoId: {}", value.getTitle(), uid))
         .doOnError(throwable -> log.error("{} {}", DefaultFileStorageService.class, throwable.getMessage()));

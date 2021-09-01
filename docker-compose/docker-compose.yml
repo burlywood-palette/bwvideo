@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  mongodb-service:
+    image: mongo
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: bwpdev
+      MONGO_INITDB_ROOT_PASSWORD: bwpdev
+    volumes:
+      - db1:/data/db
+      - db1-config:/data/configdb
+    networks:
+      - burlywood_palette_network
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: bwpdev
+      ME_CONFIG_MONGODB_ADMINPASSWORD: bwpdev
+      ME_CONFIG_OPTIONS_EDITORTHEME: ambiance
+      ME_CONFIG_MONGODB_SERVER: mongodb
+    networks:
+      - burlywood_palette_network
+
+volumes:
+  db1:
+  db1-config:
+
+networks:
+  burlywood_palette_network:
+    external: true

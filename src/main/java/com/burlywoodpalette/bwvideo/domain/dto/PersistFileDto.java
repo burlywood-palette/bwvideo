@@ -11,6 +11,5 @@ public class PersistFileDto {
 
   private Mono<FilePart> fileParts;
   private String title;
-  private String contentType;
 
 }

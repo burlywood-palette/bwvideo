@@ -1,0 +1,3 @@
+bwvideo-config:
+  property:
+    image-count-result: ${IMAGE_COUNT_RESULT:25}

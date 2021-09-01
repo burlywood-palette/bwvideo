@@ -1,0 +1,16 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: BWVideoService
+  profiles:
+    include: config
+  data:
+    mongodb:
+      database: ${MONGO_DB_DATABASE:bwvideo-service}
+      port: ${MONGO_DB_PORT:27017}
+      host: ${MONGO_DB_HOST:localhost}
+      username: ${MONGO_DB_USER:bwpdev}
+      password: ${MONGO_DB_PASSWORD:bwpdev}
+      authentication-database: admin
